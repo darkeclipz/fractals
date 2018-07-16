@@ -1,4 +1,5 @@
 // Palette
+#define LN2 0.6931471806
 
 struct palette {
     vec3 c0, c1, c2, c3, c4;
@@ -72,8 +73,8 @@ vec3 cmap( float t, palette p ) {
 }
 
 //#define MAX_ITER 1024.
-#define MAX_ITER 512.
-#define THRESHOLD 16.
+#define MAX_ITER 450.
+#define THRESHOLD 4.
 float mandelbrot(vec2 uv) {
     
 	vec2 c = 2.5*(uv - vec2(.2,0)); 
@@ -85,12 +86,12 @@ float mandelbrot(vec2 uv) {
     	if( dot(z,z) > THRESHOLD ) break;
 	}
   
-    return i - log(log(dot(z,z))/log(2.))/log(2.);		    
+    return i - log(log(dot(z,z))/LN2)/LN2;		    
 }
 
 // Main
 
-#define SAMPLES 8.
+#define SAMPLES 3.
 void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
     
     vec2 R = iResolution.xy;
@@ -102,7 +103,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
     for(float i=0.; i < SAMPLES; i++) {
         vec2 p = 0.00017*(2.*fragCoord-R+nextRand2())/R.y-vec2(-0.35209,0.09199) ;
         float orbit = mandelbrot(p) / MAX_ITER;
-    	col += cmap( fract(3.5* orbit + iTime/8. ) , pal ); 
+    	col += cmap( fract(3.3* orbit + iTime/8. )-0.0001 , pal ); 
     }
     
     col /= SAMPLES;
