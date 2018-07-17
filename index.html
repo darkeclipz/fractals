@@ -86,8 +86,8 @@
                     // z = ( |Re(z)| + i|Im(z)| )^2   
                     z = abs(z);
                     z = mat2(z, -z.y, z.x) * z + c;
-                    if( dot(z,z) > THRESHOLD ) break;
                     i=j;
+                    if( dot(z,z) > THRESHOLD ) break;
                 }
               
                 return i - log(log(dot(z,z))/LN2)/LN2;	    
