@@ -1,0 +1,14 @@
+{
+  "name": "ThreeJS",
+  "authors": [
+    "darkeclipz <larsrotgers@gmail.com>"
+  ],
+  "description": "Shaders",
+  "main": "app.ts",
+  "license": "y",
+  "homepage": "n",
+  "private": true,
+  "dependencies": {
+    "threejs": "*"
+  }
+}
