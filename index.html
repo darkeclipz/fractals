@@ -7,10 +7,10 @@
             body { margin: 0; overflow: hidden; background-color: #000; color: #fff; }
             canvas { width: 100%; height: 100%;  }
         </style>
+		
     </head>
-    <body>
-        <script src="three.js"></script>
-        <script src="app.js"></script>
+    <body>        
+       
         <script type="x-shader/x-vertex" id="vertexShader">  
 
             varying vec2 vUv; 
@@ -123,53 +123,9 @@
 
         <script>
 
-            var client = new XMLHttpRequest();
-            client.open('GET', '/shaders/fragment_BurningShipJulia.glsl');
-            client.onreadystatechange = function() {
-                //document.body.innerHTML = "<pre>"+client.responseText+"</pre>";
-            }
-            client.send();
-
-            //https://stackoverflow.com/questions/24820004/how-to-implement-a-shadertoy-shader-in-three-js
-            let scene = new THREE.Scene();
-            let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-            let renderer = new THREE.WebGLRenderer();
-            renderer.setSize( window.innerWidth, window.innerHeight );
-            document.body.appendChild( renderer.domElement );
-            
-            let tuniform = {
-                iTime:    { type: 'f', value: 0.1 },
-                iResolution: { type: 'vec2', value: { x: window.innerWidth, y: window.innerHeight } }
-            };
-
-            var material = new THREE.ShaderMaterial({
-                uniforms: tuniform,
-                vertexShader: document.getElementById('vertexShader').textContent,
-                fragmentShader: document.getElementById('fragmentShader').textContent,            
-                side:THREE.DoubleSide
-            });
-
-            var tobject = new THREE.Mesh( new THREE.PlaneGeometry(700, 394,1,1), material);
-
-            camera.position.z = 200;
-            scene.add(tobject);
-
-            let clock = +new Date();
-
-            var render = function () {
-                requestAnimationFrame(render);
-                renderer.render(scene, camera);
-
-                let current = +new Date();
-                let timePassed = (current - clock)/1000;
-                clock = current;
-                tuniform.iTime.value += timePassed;
-            };
-
-            //render();
-            renderer.render(scene, camera);
-
+        
         </script>
+
+        <script src="app.js"></script>
     </body>
 </html>
