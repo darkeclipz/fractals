@@ -81,8 +81,8 @@ export class App {
               tuniform.iTime.value += timePassed;
           };
 
-          //render();
-          renderer.render(scene, camera);
+          render();
+          //renderer.render(scene, camera);
     }
 
 }

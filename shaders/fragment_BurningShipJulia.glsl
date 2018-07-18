@@ -83,7 +83,7 @@ void main(void)
         vec2 p = 1.6*r*((2.*fragCoord-R+nextRand2()+0.0001)/R.y);
         float orbit = bship(p) / MAX_ITER;
         float f = fract( 10.*orbit );
-        col += cmap(f, pal); 
+        col += cmap( fract(f + iTime/10. )-0.0001 , pal); 
     }
     
     col /= AA;

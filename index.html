@@ -29,7 +29,7 @@
             uniform float iTime;
             uniform vec2 iResolution;
 
-            #define AA 32.
+            #define AA 4.
             #define MAX_ITER 1024.
             #define THRESHOLD 64.
             #define LN2 0.6931471806
@@ -111,7 +111,7 @@
                     vec2 p = 1.6*r*((2.*fragCoord-R+nextRand2()+0.0001)/R.y);
                     float orbit = bship(p) / MAX_ITER;
                     float f = fract( 10.*orbit );
-                    col += cmap(f, pal); 
+                    col += cmap( fract(f + iTime/10. )-0.0001 , pal); 
                 }
                 
                 col /= AA;
