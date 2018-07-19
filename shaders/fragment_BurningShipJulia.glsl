@@ -1,3 +1,4 @@
+let glsl_fragmentShader_burningShipJulia = `
 uniform float iTime;
 uniform vec2 iResolution;
 
@@ -31,7 +32,7 @@ float random (in vec2 st) {
 float randSeed = 0.;
 vec2 nextRand2() {
     vec2 v = vec2( randSeed++, randSeed++ );
-    return vec2( random( v+0.34 ), random( v+0.75 ) );    
+    return vec2( random( v+0.34 ), random( v+0.75 ) );
 }
 
 // Mapping
@@ -90,3 +91,4 @@ void main(void)
 
     gl_FragColor = vec4(col, 1.0);
 }
+`;
