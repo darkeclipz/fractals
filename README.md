@@ -1,4 +1,8 @@
-﻿# ThreeJS Shaders
+﻿# Fractals
+ 
+ Currently implemented:
+ 
+  * Burning ship + julia
 
 View them with the [Fractal Viewer](https://darkeclipz.github.io/fractals/).
 
