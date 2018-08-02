@@ -1,6 +1,6 @@
 ﻿# ThreeJS Shaders
 
-View them with the [Fractal Viewer](index.html).
+View them with the [Fractal Viewer](https://darkeclipz.github.io/fractals/).
 
 # Screenshots
 
