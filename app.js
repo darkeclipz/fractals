@@ -16,6 +16,7 @@ var FractalViewer = /** @class */ (function () {
         console.log('Vue initialized!');
     };
     FractalViewer.prototype.initThree = function () {
+        var _this = this;
         this.container = document.getElementById(this.canvasId);
         this.camera = new THREE.Camera();
         this.camera.position.z = 1;
@@ -37,7 +38,7 @@ var FractalViewer = /** @class */ (function () {
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.container.appendChild(this.renderer.domElement);
         this.onWindowResize();
-        window.addEventListener('resize', this.onWindowResize, false);
+        window.addEventListener('resize', function () { return _this.onWindowResize; }, false);
         console.log('Three initialized!');
     };
     FractalViewer.prototype.render = function () {

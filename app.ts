@@ -78,7 +78,7 @@ class FractalViewer {
         this.container.appendChild(this.renderer.domElement);
         
         this.onWindowResize();
-        window.addEventListener( 'resize', this.onWindowResize, false );
+        window.addEventListener( 'resize', () => this.onWindowResize, false );
 
         console.log('Three initialized!');
 
