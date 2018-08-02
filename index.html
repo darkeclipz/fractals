@@ -37,15 +37,15 @@
                             <td>{{ time }}</td>
                         </tr>
                         <tr>
-                            <td>Position</td>
+                            <td>Position (WASD)</td>
                             <td>x: <input style="width: 60px;" v-model="position.x"/> y: <input style="width: 60px;" v-model="position.y"/></td>
                         </tr>
                         <tr>
-                            <td>Rotation</td>
+                            <td>Rotation(R/F)</td>
                             <td><input type="range" min="0" max="360" step="0.5" v-model="rotation"/></td>
                         </tr>
                         <tr>
-                            <td>Zoom</td>
+                            <td>Zoom (E/Q)</td>
                             <td><input v-model="zoom"/></td>
                         </tr>
                         <tr>
@@ -53,12 +53,20 @@
                             <td><input v-model="samples"/></td>
                         </tr>
                         <tr>
-                            <td>Max. iterations</td>
+                            <td>Max. iterations (T/G)</td>
                             <td><input v-model="maxIterations"/></td>
                         </tr>
                         <tr>
                             <td>Threshold</td>
                             <td><input v-model="threshold"/></td>
+                        </tr>
+                        <tr>
+                            <td>Animate</td>
+                            <td><input type="checkbox" v-model="animate"/></td>
+                        </tr>
+                        <tr>
+                            <td>Animaton speed</td>
+                            <td><input type="range" min="0" max="3" step="0.05" v-model="animationSpeed"/></td>
                         </tr>
                     </tbody>
                 </table>
@@ -85,6 +93,8 @@
             uniform float u_samples;
             uniform float u_max_iter;
             uniform float u_threshold;
+            uniform bool u_animate;
+            uniform float u_animate_speed;
             
             #define AA 4.
             #define MAX_ITER 1024.
@@ -134,7 +144,9 @@
             
             float bship(vec2 uv) {
                 
-                uv += u_position;
+                float a = u_rotation;
+                mat2 rot = mat2(cos(a),-sin(a),sin(a),cos(a));
+                uv += rot*u_position;
 
                 vec2 z = u_julia ? uv : vec2(0),
                      c = u_julia ? vec2(0.5971,-0.9370) : uv;
@@ -156,20 +168,24 @@
             void main(void)
             {
                 vec2 R = u_resolution;
+            
                 palette pal = palette_blue();
                 vec3 col = vec3(0);
                 float a = u_rotation;
-                mat2 rot = mat2(cos(a),sin(a),-sin(a),cos(a));
+                mat2 rot = mat2(cos(a),-sin(a),sin(a),cos(a));
             
                 for(float i=0.; i < 10000.; i++) {
                     if(i > u_samples) break;
                     vec2 p = u_zoom * rot * ( (2. * (gl_FragCoord.xy + nextRand2()) - R ) / R.y );
                     float orbit = bship(p) / u_max_iter;
                     float f = fract( 10.*orbit );
-                    col += cmap( fract(f)-0.0001 , pal); 
+                    float t = 0.0;
+                    if(u_animate) t = u_animate_speed * u_time;
+                    col += cmap( fract(f + t)-0.0001 , pal); 
                 }
                 
                 col /= u_samples;
+            
                 gl_FragColor = vec4(col, 1.0);
             }
 

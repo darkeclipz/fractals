@@ -13,6 +13,61 @@ interface TUniform {
     u_samples;
     u_max_iter;
     u_threshold;
+    u_animate;
+    u_animate_speed;
+}
+
+enum Key {
+    W = 87, A = 65, S = 83, D = 68, R = 82, E = 69, Q = 81, F = 70,
+    T = 84, G = 71
+}
+
+class Controls {
+
+    keysDown: boolean[];
+    keysToggled: boolean[];
+
+    constructor() {
+
+        this.keysDown = new Array<boolean>(252);
+        this.keysToggled = new Array<boolean>(255);
+        document.addEventListener("keydown", () => this.keydownCallback(), false);
+        document.addEventListener("keyup", () => this.keyupCallback(), false);
+        console.log('Controls initialized!');
+
+    }
+
+    public getKeyDown(key: number) {
+
+        if(key >= 255) return;
+        return this.keysDown[key];
+
+    }
+
+    public getKeyToggled(key: number) {
+
+        if(key >= 255) return;
+        return this.keysToggled[key];
+
+    }
+
+    keydownCallback(e?: KeyboardEvent) {
+
+        e = <KeyboardEvent>event;
+        if(e.keyCode >= 255) return;
+        this.keysDown[e.keyCode] = true;
+        this.keysToggled[e.keyCode] = !this.keysToggled[e.keyCode];
+
+    }
+
+    keyupCallback(e?: KeyboardEvent) {
+
+        e = <KeyboardEvent>event;
+        if(e.keyCode >= 255) return;
+        this.keysDown[e.keyCode] = false;
+
+    }
+
 }
 
 class FractalViewer {
@@ -29,6 +84,8 @@ class FractalViewer {
     private renderer;
     private uniforms: TUniform;
 
+    private controls: Controls;
+
     constructor(canvasId: string, vueId: string) {
 
         this.canvasId = canvasId;
@@ -37,6 +94,8 @@ class FractalViewer {
 
         this.initVue();
         this.initThree();
+
+        this.controls = new Controls();
 
     }
 
@@ -50,10 +109,12 @@ class FractalViewer {
                 time: 0,
                 position: new THREE.Vector2(0),
                 zoom: 1.6,
-                samples: 4,
-                maxIterations: 100,
-                threshold: 64,
-                rotation: 90
+                samples: 8,
+                maxIterations: 300,
+                threshold: 128,
+                rotation: 90,
+                animate: true,
+                animationSpeed: 0.1
             }
         });
 
@@ -82,7 +143,9 @@ class FractalViewer {
             u_zoom: { type: "f", value: 1.6 },
             u_samples: { type: "f", value: 1. },
             u_max_iter: { type: "f", value: 64. },
-            u_threshold: { type: "f", value: 64. }
+            u_threshold: { type: "f", value: 64. },
+            u_animate: { type: "b", value: true },
+            u_animate_speed: { type: "f", value: 1. }
         };
 
         var material = new THREE.ShaderMaterial({
@@ -108,6 +171,7 @@ class FractalViewer {
 
     public render() {
 
+        this.handleKeys();
 
         // Dont send anything higher to the GPU, or it crashes.
         if(this.vue.samples > 512) {
@@ -129,7 +193,10 @@ class FractalViewer {
         this.uniforms.u_max_iter.value = this.vue.maxIterations,
         this.uniforms.u_threshold.value = this.vue.threshold;
         this.uniforms.u_time.value += 0.05;
+        this.uniforms.u_animate.value = this.vue.animate;
+        this.uniforms.u_animate_speed.value = this.vue.animationSpeed;
         this.vue.time = this.round(this.uniforms.u_time.value, 1);
+
         
         this.renderer.render(this.scene, this.camera);
 
@@ -151,4 +218,20 @@ class FractalViewer {
 
     } 
 
+    handleKeys() {
+
+        if( this.controls.getKeyDown(Key.W) ) this.vue.position.y += 0.02 * this.vue.zoom;
+        if( this.controls.getKeyDown(Key.S) ) this.vue.position.y -= 0.02 * this.vue.zoom;
+        if( this.controls.getKeyDown(Key.A) ) this.vue.position.x -= 0.02 * this.vue.zoom;
+        if( this.controls.getKeyDown(Key.D) ) this.vue.position.x += 0.02 * this.vue.zoom;
+        if( this.controls.getKeyDown(Key.Q) ) this.vue.zoom += 0.02 * this.vue.zoom;
+        if( this.controls.getKeyDown(Key.E) ) this.vue.zoom -= 0.02 * this.vue.zoom;
+        if( this.controls.getKeyDown(Key.R) ) this.vue.rotation += 1;
+        if( this.controls.getKeyDown(Key.F) ) this.vue.rotation -= 1;
+        if( this.controls.getKeyDown(Key.T) ) this.vue.maxIterations += 5;
+        if( this.controls.getKeyDown(Key.G) ) this.vue.maxIterations -= 5;
+
+    }
+
 }
+
