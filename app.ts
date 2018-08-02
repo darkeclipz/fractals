@@ -197,7 +197,6 @@ class FractalViewer {
         this.uniforms.u_animate_speed.value = this.vue.animationSpeed;
         this.vue.time = this.round(this.uniforms.u_time.value, 1);
 
-        
         this.renderer.render(this.scene, this.camera);
 
     }
