@@ -111,12 +111,12 @@ var FractalViewer = /** @class */ (function () {
     FractalViewer.prototype.render = function () {
         this.handleKeys();
         // Dont send anything higher to the GPU, or it crashes.
-        if (this.vue.samples > 512) {
-            console.warn('Too many samples, max is 512!');
+        if (this.vue.samples > 64) {
+            console.warn('Too many samples, max is 64!');
             return;
         }
-        if (this.vue.max_iter > 5000) {
-            console.warn('Too many iterations, max is 5000!');
+        if (this.vue.max_iter > 200) {
+            console.warn('Too many iterations, max is 2000!');
             return;
         }
         this.uniforms.u_position.value.x = this.vue.position.x;
