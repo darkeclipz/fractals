@@ -10,7 +10,7 @@
 
 In the `screenshots` folder are quite a few pictures. :)
 
- # Shadertoy shaders
+ # Shadertoy
  
  Implementations of the fractals on ShaderToy:
 
