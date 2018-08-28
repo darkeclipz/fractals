@@ -19,6 +19,8 @@ void mainImage( out vec4 O, in vec2 I ) {
 }
 ```
 
+You can test it at [https://www.shadertoy.com/new](Shadertoy).
+
 # Screenshots
 
 In the `screenshots` folder are quite a few pictures. :)
