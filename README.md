@@ -25,7 +25,7 @@ You can test it at [Shadertoy](https://www.shadertoy.com/new).
 
 In the `screenshots` folder are quite a few pictures. :)
 
- # Shadertoy
+ # GLSL code
  
  Implementations of the fractals on ShaderToy:
 
