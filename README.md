@@ -19,7 +19,7 @@ void mainImage( out vec4 O, in vec2 I ) {
 }
 ```
 
-You can test it at [https://www.shadertoy.com/new](Shadertoy).
+You can test it at [Shadertoy](https://www.shadertoy.com/new).
 
 # Screenshots
 
