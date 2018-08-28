@@ -6,7 +6,7 @@
 
 # GLSL code for Mandelbrot
 
-An attempt to create a short, and fast, implementation for the Mandelbrot set in GLSL.
+An attempt to create a short, and fast, implementation for the Mandelbrot set in GLSL. Currently it stands at 176 characters, which is a little more than half a tweet.
 
 ```glsl
 #define R iResolution.xy
