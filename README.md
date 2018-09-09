@@ -25,6 +25,10 @@ You can test it at [Shadertoy](https://www.shadertoy.com/new).
 
 In the `screenshots` folder are quite a few pictures. :)
 
+## Mandelbrot
+
+![mandelbrot1](screenshots/mandelbrot1.PNG)
+
  # GLSL code
  
  Implementations of the fractals on ShaderToy:
