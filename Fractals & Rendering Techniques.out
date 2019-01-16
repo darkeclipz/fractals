@@ -1,0 +1,27 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Shaders and GLSL}{}% 2
+\BOOKMARK [1][-]{section.3}{Complex Numbers}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Geometric Interpretation of Complex Numbers}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Rules of Complex Arithmetic}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Complex Arithmetic in GLSL}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Addition}{subsection.3.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Multiplication}{subsection.3.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Exponentiation}{subsection.3.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.3.4}{Implementation}{subsection.3.3}% 10
+\BOOKMARK [1][-]{section.4}{The Mandelbrot Set}{}% 11
+\BOOKMARK [1][-]{section.5}{Colorful Palettes}{}% 12
+\BOOKMARK [2][-]{subsection.5.1}{Procedural Color Palette}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Gradient Examples}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Implementation}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Smooth Iteration Count}{}% 16
+\BOOKMARK [1][-]{section.7}{Supersampling}{}% 17
+\BOOKMARK [1][-]{section.8}{Burning Ship Fractal}{}% 18
+\BOOKMARK [1][-]{section.9}{Julia Sets}{}% 19
+\BOOKMARK [1][-]{section.10}{Animation}{}% 20
+\BOOKMARK [2][-]{subsection.10.1}{Rotation over time}{section.10}% 21
+\BOOKMARK [2][-]{subsection.10.2}{Zoom over time}{section.10}% 22
+\BOOKMARK [1][-]{section.11}{Polynomials}{}% 23
+\BOOKMARK [1][-]{section.12}{Distance Rendering}{}% 24
+\BOOKMARK [1][-]{section.13}{Geometric Orbit Traps}{}% 25
+\BOOKMARK [1][-]{section.14}{Iterated Functions Systems}{}% 26
+\BOOKMARK [1][-]{section.15}{References}{}% 27
