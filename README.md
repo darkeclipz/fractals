@@ -1,6 +1,6 @@
 ﻿# Fractals
  
- View them with the [Fractal Viewer](https://darkeclipz.github.io/fractals/). Currently the following are implemented:
+ View them with the [Fractal Viewer](https://darkeclipz.github.io/fractals/viewer/). Currently the following are implemented:
  
   * Burning ship + julia
 
