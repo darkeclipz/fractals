@@ -1,6 +1,6 @@
 ﻿# Fractals & Rendering Techniques in GLSL
 
-This repository all my work with fractals. [An explanation can be found here](https://darkeclipz.github.io/fractals/paper/Fractals%20&%20Rendering%20Techniques.html).
+This repository contains all my work with fractals. [An explanation can be found here](https://darkeclipz.github.io/fractals/paper/Fractals%20&%20Rendering%20Techniques.html).
 
 # Fractal Shader
 
