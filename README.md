@@ -82,10 +82,13 @@ void mainImage( out vec4 O, in vec2 I ) {
 
 It can be tested at [Shadertoy](https://www.shadertoy.com/new).
 
-# 3D Fractals
+# Resources
 
-A _very_ nice explanation of [3D fractals and how to implement it can be found here](http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/), and I will implement this at a later time.
-
+More resources can be found at the following links:
+ 
+ * Distance Estimation with 3D Fractals: http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/
+ * Building 4D Polytopes, and Stereoscopic Projection: https://syntopia.github.io/Polytopia/polytopes.html
+ 
 # Screenshots
 
 In the `screenshots` folder are high-res pictures.
