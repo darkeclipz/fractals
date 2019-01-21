@@ -88,6 +88,7 @@ More resources can be found at the following links:
  
  * Distance Estimation with 3D Fractals: http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/
  * Building 4D Polytopes, and Stereoscopic Projection: https://syntopia.github.io/Polytopia/polytopes.html
+ * GUI.dat, is a lightweight GUI library: https://github.com/dataarts/dat.gui
  
 # Screenshots
 
