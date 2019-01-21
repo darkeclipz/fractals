@@ -63,7 +63,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
 
 # Fractal Viewer
  
-This is [a link to a simple fractal viewer]((https://darkeclipz.github.io/fractals/viewer/index.html)) with limited controls. It shows the burning ship fractal. 
+This is [a link to a simple fractal viewer](https://darkeclipz.github.io/fractals/viewer/index.html) with limited controls. It shows the burning ship fractal. 
 
 # Short and Fast Mandelbrot
 
@@ -81,6 +81,10 @@ void mainImage( out vec4 O, in vec2 I ) {
 ```
 
 It can be tested at [Shadertoy](https://www.shadertoy.com/new).
+
+# 3D Fractals
+
+A _very_ nice explanation of [3D fractals and how to implement it can be found here](http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/), and I will implement this at a later time.
 
 # Screenshots
 
